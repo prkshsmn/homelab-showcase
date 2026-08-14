@@ -5,9 +5,7 @@
     "nas": "TerraMaster F4-423 4-Bay NAS, N5095 Quad-core CPU, 4GB DDR4, 2x 12TB IronWolf NAS drives"
   },
   "stats": {
-    "dockerStacks": 12,
     "openInboundPorts": 0,
-    "scheduledJobs": "20+",
     "secretsEncryption": "SOPS / age"
   },
   "incidents": [
