@@ -21,7 +21,7 @@ file. Editing it directly will be overwritten on the next push; edit the source 
 
 - **14** Docker Compose stacks
 - **35** scheduled jobs
-- **6277** job runs in the last 14 days, **99.87%** success rate
+- **6337** job runs in the last 14 days, **99.89%** success rate
 - Status: **healthy**
 - Open inbound ports: **0**
 - Secrets encryption: **SOPS / age**
