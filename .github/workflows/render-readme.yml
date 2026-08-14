@@ -1,0 +1,63 @@
+name: render-readme
+
+# Two separate jobs, deliberately, not one gate: `validate` never writes and
+# runs on every PR touching the data; `render` only runs on push to main and
+# is the only job with write access. Both inputs to this workflow are
+# already public, so it needs no secret and never touches the private repo.
+# See proposals/2026-08-13-showcase-typed-stats-and-self-rendering-readme.md
+# part C. README.md is deliberately absent from the paths filters below so
+# this workflow's own commit cannot retrigger itself.
+
+on:
+  pull_request:
+    paths:
+      - content.json
+      - stats.json
+      - tools/render_readme.py
+  push:
+    branches: [main]
+    paths:
+      - content.json
+      - stats.json
+      - tools/render_readme.py
+  workflow_dispatch: {}
+
+permissions:
+  contents: read
+
+jobs:
+  validate:
+    if: github.event_name == 'pull_request'
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - run: python3 tools/render_readme.py validate
+
+  render:
+    if: github.event_name != 'pull_request'
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - run: python3 tools/render_readme.py validate
+      - run: python3 tools/render_readme.py render
+      - name: commit if README changed
+        run: |
+          if git diff --quiet -- README.md; then
+            echo "no-op: README.md already up to date"
+            exit 0
+          fi
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add README.md
+          git commit -m "Regenerate README.md from content.json + stats.json"
+          git push
