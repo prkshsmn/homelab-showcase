@@ -1,9 +1,9 @@
 {
   "schema": 1,
-  "lastVerified": "2026-08-28",
+  "lastVerified": "2026-08-29",
   "dockerStacks": 15,
-  "scheduledJobs": 48,
-  "jobRuns14d": 13375,
-  "jobSuccessRate14d": 0.9992,
+  "scheduledJobs": 55,
+  "jobRuns14d": 15023,
+  "jobSuccessRate14d": 0.9993,
   "status": "healthy"
 }
