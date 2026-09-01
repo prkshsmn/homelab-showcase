@@ -21,11 +21,11 @@ file. Editing it directly will be overwritten on the next push; edit the source 
 
 - **15** Docker Compose stacks
 - **63** scheduled jobs
-- **18533** job runs in the last 14 days, **99.95%** success rate
+- **20295** job runs in the last 14 days, **99.97%** success rate
 - Status: **healthy**
 - Open inbound ports: **0**
 - Secrets encryption: **SOPS / age**
-- Last verified: **2026-08-31**
+- Last verified: **2026-09-01**
 
 ## Incidents
 
