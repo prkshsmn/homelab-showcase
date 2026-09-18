@@ -19,13 +19,13 @@ file. Editing it directly will be overwritten on the next push; edit the source 
 
 ## Current stats
 
-- **15** Docker Compose stacks
-- **63** scheduled jobs
-- **32059** job runs in the last 14 days, **99.23%** success rate
+- **14** Docker Compose stacks
+- **64** scheduled jobs
+- **31731** job runs in the last 14 days, **99.21%** success rate
 - Status: **healthy**
 - Open inbound ports: **0**
 - Secrets encryption: **SOPS / age**
-- Last verified: **2026-09-17**
+- Last verified: **2026-09-18**
 
 ## Incidents
 
