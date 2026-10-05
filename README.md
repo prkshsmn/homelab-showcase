@@ -25,7 +25,7 @@ file. Editing it directly will be overwritten on the next push; edit the source 
 - Status: **healthy**
 - Open inbound ports: **0**
 - Secrets encryption: **SOPS / age**
-- Last verified: **2026-09-27**
+- Last verified: **2026-10-05**
 
 ## Incidents
 
