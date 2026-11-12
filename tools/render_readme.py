@@ -127,7 +127,7 @@ def render_generated_block(content: dict, stats: dict) -> str:
         "## Current stats",
         "",
         f"- **{stats['dockerStacks']}** Docker Compose stacks",
-        f"- **{stats['scheduledJobs']}** scheduled jobs",
+        f"- **{stats['scheduledJobs']}** scheduled jobs that ran in the last 14 days",
         f"- **{stats['jobRuns14d']}** job runs in the last 14 days, "
         f"**{stats['jobSuccessRate14d']:.2%}** success rate",
         f"- Status: **{stats['status']}**",

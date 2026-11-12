@@ -5,11 +5,12 @@ is a companion to the full private infrastructure repo, not a mirror of it: ever
 deliberately written or rewritten for a public audience, with no shared git history and no
 internal specifics (no real IPs, hostnames, ports, or account details).
 
-**`content.json` and `stats.json` are the single source of truth.**
-[prakash-somani.com/homelab](https://prakash-somani.com/homelab) fetches both directly and renders
-them live, so editing `content.json` and pushing to `main` updates the live page on the next load.
-No redeploy of the website is needed. `stats.json` is written by an unattended job on a schedule;
-everything else here is written by hand.
+**`content.json` and `stats.json` are the single source of truth.** `content.json` is written
+by hand. `stats.json` is written by an unattended job that counts real job runs from the last
+14 days; it refuses to publish when its source is more than three days old, so a stale number
+cannot carry a fresh date. (Until 2026-11-12 that was not true: the figures here were computed
+from a file that had stopped updating in September while the "last verified" date kept moving.
+Finding and fixing that is the kind of thing this repo is about.)
 
 The section below this line is generated from `content.json` and `stats.json` by
 `tools/render_readme.py`, run by this repo's own GitHub Action on every push that touches either
